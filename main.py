@@ -11,7 +11,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 from email.header import Header
-from PyQt5.QtWidgets import QApplication, QWidget
+from PyQt5.QtWidgets import QApplication, QWidget, QFileDialog
 from interface import Ui_Form
 
 
@@ -22,7 +22,10 @@ class mainWindow(QWidget, Ui_Form):
         self.lineEdit_1.setText("smtp-mail.outlook.com")
         self.lineEdit_2.setText("leoleechn@outlook.com")
         self.lineEdit_3.setText("LeoLee091801")
-        self.pushButton_2.clicked.connect(self.sendMail)
+        self.pushButton_1.clicked.connect(self.receiversChoose)
+        self.pushButton_2.clicked.connect(self.fileChoose)
+        self.pushButton_3.clicked.connect(self.sendMail)
+        self.pushButton_4.clicked.connect(self.toolExit)
 
     def sendMail(self, parent=None):
         mailServer = "smtp-mail.outlook.com"
@@ -46,9 +49,18 @@ class mainWindow(QWidget, Ui_Form):
             smtpObj.starttls()
             smtpObj.login(senderAccount, senderPassword)
             smtpObj.sendmail(senderAccount, receiverAccount, msg.as_string())
-            self.lineEdit_7.setText("Successful")
+            self.lineEdit_8.setText("Successful")
         except smtplib.SMTPException:
-            self.lineEdit_7.setText("Failed")
+            self.lineEdit_8.setText("Failed")
+
+    def receiversChoose(self, parent=None):
+        pass
+
+    def fileChoose(self, parent=None):
+        fileName, fileType = QFileDialog.getOpenFileName(self, "打开", os.getcwd(), "Adobe PDF 文件(*.pdf);;所有文件(*.*)")
+
+    def toolExit(self, parent=None):
+        sys.exit(app.exec_())
 
 
 if __name__ == "__main__":
