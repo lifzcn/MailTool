@@ -171,16 +171,6 @@
      <string>主题</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_5">
-    <property name="geometry">
-     <rect>
-      <x>51</x>
-      <y>21</y>
-      <width>431</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
@@ -194,15 +184,23 @@
      <string>正文</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_6">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>52</x>
-      <y>50</y>
+      <x>51</x>
+      <y>21</y>
       <width>431</width>
-      <height>311</height>
+      <height>351</height>
      </rect>
     </property>
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="lineEdit_5"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPlainTextEdit" name="plainTextEdit"/>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_5">
@@ -230,16 +228,16 @@
      <string>发送</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>123</width>
+      <x>22</x>
+      <y>22</y>
+      <width>281</width>
       <height>22</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout_4">
+    <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
       <widget class="QLabel" name="label_8">
        <property name="text">
@@ -248,6 +246,16 @@
       </widget>
      </item>
      <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEdit_6"/>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>发送状态</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
       <widget class="QLineEdit" name="lineEdit_7"/>
      </item>
     </layout>

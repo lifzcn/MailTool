@@ -31,7 +31,7 @@ class mainWindow(QWidget, Ui_Form):
         senderPassword = "LeoLee091801"
         receiverAccount = self.lineEdit_4.text()
         topicText = self.lineEdit_5.text()
-        mainText = self.lineEdit_6.text()
+        mainText = self.plainTextEdit.toPlainText()
 
         # senderName = "Leonard"
         # receiverName = "Gloria"
@@ -44,11 +44,11 @@ class mainWindow(QWidget, Ui_Form):
         try:
             smtpObj = smtplib.SMTP(mailServer, mailPort)
             smtpObj.starttls()
-            smtpObj.login(senderAccount, senderPassword)  # 登录验证
-            smtpObj.sendmail(senderAccount, receiverAccount, msg.as_string())  # 发送
-            print("mail has been send successfully.")
-        except smtplib.SMTPException as e:
-            print(e)
+            smtpObj.login(senderAccount, senderPassword)
+            smtpObj.sendmail(senderAccount, receiverAccount, msg.as_string())
+            self.lineEdit_7.setText("Successful")
+        except smtplib.SMTPException:
+            self.lineEdit_7.setText("Failed")
 
 
 if __name__ == "__main__":
