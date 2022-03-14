@@ -152,53 +152,51 @@
      <x>19</x>
      <y>180</y>
      <width>501</width>
-     <height>381</height>
+     <height>351</height>
     </rect>
    </property>
    <property name="title">
     <string>邮件内容</string>
    </property>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>22</x>
-      <y>22</y>
-      <width>24</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>主题</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>22</x>
-      <y>45</y>
-      <width>24</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>正文</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>51</x>
-      <y>21</y>
-      <width>431</width>
-      <height>351</height>
+      <x>20</x>
+      <y>22</y>
+      <width>461</width>
+      <height>321</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout_5">
+    <layout class="QGridLayout" name="gridLayout_4">
      <item row="0" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>主题</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
       <widget class="QLineEdit" name="lineEdit_5"/>
      </item>
      <item row="1" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>正文</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
       <widget class="QPlainTextEdit" name="plainTextEdit"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>附件</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="lineEdit_6"/>
      </item>
     </layout>
    </widget>
@@ -207,56 +205,69 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>570</y>
+     <y>540</y>
      <width>501</width>
-     <height>51</height>
+     <height>81</height>
     </rect>
    </property>
    <property name="title">
     <string>发送设置</string>
    </property>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>20</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>发送</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>22</x>
-      <y>22</y>
+      <y>30</y>
       <width>281</width>
       <height>22</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="label_9">
        <property name="text">
         <string>发送时间间隔</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit_6"/>
+      <widget class="QLineEdit" name="lineEdit_7"/>
      </item>
      <item row="0" column="2">
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="label_10">
        <property name="text">
         <string>发送状态</string>
        </property>
       </widget>
      </item>
      <item row="0" column="3">
-      <widget class="QLineEdit" name="lineEdit_7"/>
+      <widget class="QLineEdit" name="lineEdit_8"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>13</y>
+      <width>77</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_5">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>发送</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>退出</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
