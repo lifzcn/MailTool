@@ -27,6 +27,13 @@ class mainWindow(QWidget, Ui_Form):
         self.pushButton_3.clicked.connect(self.sendMail)
         self.pushButton_4.clicked.connect(self.toolExit)
 
+    def receiversChoose(self, parent=None):
+        pass
+
+    def fileChoose(self, parent=None):
+        filePath, fileType = QFileDialog.getOpenFileName(self, "打开", os.getcwd(), "Adobe PDF 文件(*.pdf);;所有文件(*.*)")
+        self.lineEdit_6.setText(filePath)
+
     def sendMail(self, parent=None):
         mailServer = "smtp-mail.outlook.com"
         mailPort = 587
@@ -39,10 +46,27 @@ class mainWindow(QWidget, Ui_Form):
         # senderName = "Leonard"
         # receiverName = "Gloria"
 
-        msg = MIMEText(mainText, "plain", "utf-8")
-        msg["Subject:"] = topicText
-        msg["From:"] = senderAccount
-        msg["To:"] = receiverAccount
+        contentPart = MIMEText(mainText, "plain", "utf-8")
+        msg = MIMEMultipart()
+        msg.attach(contentPart)
+        msg["Subject"] = topicText
+        msg["From"] = senderAccount
+        msg["To"] = receiverAccount
+
+        # if filePath:
+        #     for appendixPath in filePath:
+        #         appendixFile = open(appendixPath, "rb").read()
+        #         appendixPart = MIMEApplication(appendixFile)
+        #         appendixPart.add_header("Content-Disposition", "attachment", filename=os.path.basename(appendixPath))
+        #         msg.attach(appendixPart)
+
+        if len(self.lineEdit_6.text()) != 0:
+            appendixPath = self.lineEdit_6.text()
+            appendixFile = open(appendixPath, "rb").read()
+            appendixPart = MIMEApplication(appendixFile)
+            appendixPart.add_header("Content-Disposition", "attachment",
+                                    filename=os.path.basename(appendixPath))
+            msg.attach(appendixPart)
 
         try:
             smtpObj = smtplib.SMTP(mailServer, mailPort)
@@ -52,12 +76,6 @@ class mainWindow(QWidget, Ui_Form):
             self.lineEdit_8.setText("Successful")
         except smtplib.SMTPException:
             self.lineEdit_8.setText("Failed")
-
-    def receiversChoose(self, parent=None):
-        pass
-
-    def fileChoose(self, parent=None):
-        fileName, fileType = QFileDialog.getOpenFileName(self, "打开", os.getcwd(), "Adobe PDF 文件(*.pdf);;所有文件(*.*)")
 
     def toolExit(self, parent=None):
         sys.exit(app.exec_())
