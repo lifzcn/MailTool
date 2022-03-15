@@ -20,8 +20,9 @@ class mainWindow(QWidget, Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.lineEdit_1.setText("smtp-mail.outlook.com")
-        self.lineEdit_2.setText("leoleechn@outlook.com")
-        self.lineEdit_3.setText("LeoLee091801")
+        self.lineEdit_2.setText("587")
+        self.lineEdit_3.setText("leoleechn@outlook.com")
+        self.lineEdit_4.setText("LeoLee091801")
         self.pushButton_1.clicked.connect(self.receiversChoose)
         self.pushButton_2.clicked.connect(self.fileChoose)
         self.pushButton_3.clicked.connect(self.sendMail)
@@ -39,8 +40,14 @@ class mainWindow(QWidget, Ui_Form):
         mailPort = 587
         senderAccount = "leoleechn@outlook.com"
         senderPassword = "LeoLee091801"
-        receiverAccount = self.lineEdit_4.text()
-        topicText = self.lineEdit_5.text()
+
+        # mailServer = self.lineEdit_1.text()
+        # mailPort = self.lineEdit_2.text()
+        # senderAccount = self.lineEdit_3.text()
+        # senderPassword = self.lineEdit_4.text()
+
+        receiverAccount = self.lineEdit_5.text()
+        topicText = self.lineEdit_6.text()
         mainText = self.plainTextEdit.toPlainText()
 
         # senderName = "Leonard"
@@ -60,8 +67,8 @@ class mainWindow(QWidget, Ui_Form):
         #         appendixPart.add_header("Content-Disposition", "attachment", filename=os.path.basename(appendixPath))
         #         msg.attach(appendixPart)
 
-        if len(self.lineEdit_6.text()) != 0:
-            appendixPath = self.lineEdit_6.text()
+        if len(self.lineEdit_7.text()) != 0:
+            appendixPath = self.lineEdit_7.text()
             appendixFile = open(appendixPath, "rb").read()
             appendixPart = MIMEApplication(appendixFile)
             appendixPart.add_header("Content-Disposition", "attachment",
@@ -73,9 +80,9 @@ class mainWindow(QWidget, Ui_Form):
             smtpObj.starttls()
             smtpObj.login(senderAccount, senderPassword)
             smtpObj.sendmail(senderAccount, receiverAccount, msg.as_string())
-            self.lineEdit_8.setText("Successful")
+            self.lineEdit_9.setText("Successful")
         except smtplib.SMTPException:
-            self.lineEdit_8.setText("Failed")
+            self.lineEdit_9.setText("Failed")
 
     def toolExit(self, parent=None):
         sys.exit(app.exec_())

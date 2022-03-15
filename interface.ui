@@ -31,7 +31,7 @@
      <x>19</x>
      <y>9</y>
      <width>501</width>
-     <height>161</height>
+     <height>191</height>
     </rect>
    </property>
    <property name="title">
@@ -43,19 +43,19 @@
       <x>10</x>
       <y>31</y>
       <width>251</width>
-      <height>109</height>
+      <height>141</height>
      </rect>
     </property>
     <property name="title">
      <string>发送端</string>
     </property>
-    <widget class="QWidget" name="layoutWidget">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>20</y>
+       <y>21</y>
        <width>231</width>
-       <height>74</height>
+       <height>100</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
@@ -72,7 +72,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>账户</string>
+         <string>端口号</string>
         </property>
        </widget>
       </item>
@@ -82,12 +82,22 @@
       <item row="2" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>密码</string>
+         <string>账户</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="lineEdit_3">
+       <widget class="QLineEdit" name="lineEdit_3"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>密码</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit_4">
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
         </property>
@@ -102,7 +112,7 @@
       <x>268</x>
       <y>31</y>
       <width>221</width>
-      <height>109</height>
+      <height>141</height>
      </rect>
     </property>
     <property name="title">
@@ -112,24 +122,24 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>40</y>
        <width>201</width>
        <height>51</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="0" column="0">
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="label_5">
         <property name="text">
          <string>接收方账户</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_4"/>
+       <widget class="QLineEdit" name="lineEdit_5"/>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="label_6">
         <property name="text">
          <string>多个接收方</string>
         </property>
@@ -150,33 +160,33 @@
    <property name="geometry">
     <rect>
      <x>19</x>
-     <y>180</y>
+     <y>220</y>
      <width>501</width>
-     <height>351</height>
+     <height>311</height>
     </rect>
    </property>
    <property name="title">
     <string>邮件内容</string>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>21</x>
-      <y>23</y>
+      <y>20</y>
       <width>461</width>
-      <height>311</height>
+      <height>271</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="0" column="0">
-      <widget class="QLabel" name="label_6">
+      <widget class="QLabel" name="label_7">
        <property name="text">
         <string>主题</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="label_8">
        <property name="text">
         <string>正文</string>
        </property>
@@ -186,14 +196,14 @@
       <widget class="QPlainTextEdit" name="plainTextEdit"/>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="label_9">
        <property name="text">
         <string>附件</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="lineEdit_6"/>
+      <widget class="QLineEdit" name="lineEdit_7"/>
      </item>
      <item row="2" column="2">
       <widget class="QPushButton" name="pushButton_2">
@@ -203,7 +213,7 @@
       </widget>
      </item>
      <item row="0" column="1" colspan="2">
-      <widget class="QLineEdit" name="lineEdit_5"/>
+      <widget class="QLineEdit" name="lineEdit_6"/>
      </item>
     </layout>
    </widget>
@@ -231,24 +241,24 @@
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="label_10">
        <property name="text">
         <string>发送时间间隔</string>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="lineEdit_7"/>
+      <widget class="QLineEdit" name="lineEdit_8"/>
      </item>
      <item row="0" column="2">
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="label_11">
        <property name="text">
         <string>发送状态</string>
        </property>
       </widget>
      </item>
      <item row="0" column="3">
-      <widget class="QLineEdit" name="lineEdit_8"/>
+      <widget class="QLineEdit" name="lineEdit_9"/>
      </item>
     </layout>
    </widget>
