@@ -2,7 +2,7 @@
 # @File   : main.py
 # @Time   : 2022/3/13
 # @Author : Leonard
-# @Email  : li.fz@foxmail.com
+# @Email  : reguluslee@tom.com
 
 import os
 import sys
@@ -10,7 +10,6 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
-from email.header import Header
 from PyQt5.QtWidgets import QApplication, QWidget, QFileDialog
 from interface import Ui_Form
 
@@ -19,32 +18,28 @@ class mainWindow(QWidget, Ui_Form):
     def __init__(self, parent=None):
         super().__init__()
         self.setupUi(self)
-        self.lineEdit_1.setText("smtp-mail.outlook.com")
-        self.lineEdit_2.setText("587")
-        self.lineEdit_3.setText("leoleechn@outlook.com")
-        self.lineEdit_4.setText("LeoLee091801")
-        self.pushButton_1.clicked.connect(self.receiversChoose)
-        self.pushButton_2.clicked.connect(self.fileChoose)
-        self.pushButton_3.clicked.connect(self.sendMail)
-        self.pushButton_4.clicked.connect(self.toolExit)
-
-    def receiversChoose(self, parent=None):
-        pass
+        # self.lineEdit_1.setText("smtp-mail.outlook.com")
+        # self.lineEdit_2.setText("587")
+        # self.lineEdit_3.setText("***@outlook.com")
+        # self.lineEdit_4.setText("***")
+        self.pushButton_1.clicked.connect(self.fileChoose)
+        self.pushButton_2.clicked.connect(self.sendMail)
+        self.pushButton_3.clicked.connect(self.toolExit)
 
     def fileChoose(self, parent=None):
-        filePath, fileType = QFileDialog.getOpenFileName(self, "打开", os.getcwd(), "Adobe PDF 文件(*.pdf);;所有文件(*.*)")
-        self.lineEdit_6.setText(filePath)
+        filePath, fileType = QFileDialog.getOpenFileName(self, "打开", os.getcwd(), "PDF文件(*.pdf);;所有文件(*.*)")
+        self.lineEdit_7.setText(filePath)
 
     def sendMail(self, parent=None):
-        mailServer = "smtp-mail.outlook.com"
-        mailPort = 587
-        senderAccount = "leoleechn@outlook.com"
-        senderPassword = "LeoLee091801"
+        # mailServer = "smtp-mail.outlook.com"
+        # mailPort = 587
+        # senderAccount = "***@outlook.com"
+        # senderPassword = "***"
 
-        # mailServer = self.lineEdit_1.text()
-        # mailPort = self.lineEdit_2.text()
-        # senderAccount = self.lineEdit_3.text()
-        # senderPassword = self.lineEdit_4.text()
+        mailServer = self.lineEdit_1.text()
+        mailPort = self.lineEdit_2.text()
+        senderAccount = self.lineEdit_3.text()
+        senderPassword = self.lineEdit_4.text()
 
         receiverAccount = self.lineEdit_5.text()
         topicText = self.lineEdit_6.text()
@@ -59,13 +54,6 @@ class mainWindow(QWidget, Ui_Form):
         msg["Subject"] = topicText
         msg["From"] = senderAccount
         msg["To"] = receiverAccount
-
-        # if filePath:
-        #     for appendixPath in filePath:
-        #         appendixFile = open(appendixPath, "rb").read()
-        #         appendixPart = MIMEApplication(appendixFile)
-        #         appendixPart.add_header("Content-Disposition", "attachment", filename=os.path.basename(appendixPath))
-        #         msg.attach(appendixPart)
 
         if len(self.lineEdit_7.text()) != 0:
             appendixPath = self.lineEdit_7.text()
